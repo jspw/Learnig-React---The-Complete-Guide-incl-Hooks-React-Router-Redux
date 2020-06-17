@@ -1,0 +1,20 @@
+.class1{
+    width: 30%;
+    box-shadow: 1px 0 5px 5px #e4d4d4;
+    margin-left: 5%;
+    margin-top: 10px;
+    padding: 5px;
+
+}
+
+button{
+    margin: 5px;
+    font-size: medium;
+    font-weight: bolder;
+    cursor: pointer;
+
+}
+
+.btn{
+    float: right;
+}
