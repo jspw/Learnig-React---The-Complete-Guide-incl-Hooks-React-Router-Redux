@@ -1,27 +1,9 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import logo from '../logo.svg';
 import './App.css';
-import Std from './Student/Student';
-// import Radium, { StyleRoot } from 'radium'
-import styled from 'styled-components'
-
-const StyleButton = styled.button`
-
-  background-color:   ${props => props.alt ? 'yellow' : 'green'} ;
-  color: "white";
-  font: inherit;
-  font-size: 1.5em;
-  border: 3px solid #eee;
-  padding: 8px;
-  cursor: pointer;
-  margin: 10px;
-  &:hover{
-    background-color:  ${props => props.alt ? 'lightyellow' : 'lightgreen'};
-    color:  ${props => props.alt ? 'blue' : 'lightgreen'};
-  }
-
-`;
-
+import cssClasses from '../Components/Students/Student/Student.module.css';
+import Std from '../Components/Students/Student/Student';
+import ErrorBoundary from '../ErrorBoundary/ErrorBoundry'
 
 class App extends Component {
   state = {
@@ -75,46 +57,27 @@ class App extends Component {
     this.setState({
       students: student
     })
-    console.log("Clicked!")
   }
 
   render() {
 
-    const style = {
-      backgroundColor: 'green',
-      color: "white",
-      font: 'inherit',
-      fontSize: '1.5em',
-      border: '3px solid #eee',
-      padding: '8px',
-      cursor: 'pointer',
-      margin: "10px",
-      ':hover': {
-        backgroundColor: 'lightgreen',
-        color: 'black'
-      }
-    }
-
-    // let  classes = ['red','bold'].join(' ');
-
-    console.log("Length = " + this.state.students.length);
-
     const classes = [];
     if (this.state.students.length <= 3) {
-      classes.push('bold');
+      classes.push(cssClasses.bold);
     }
     if (this.state.students.length < 1) {
-      classes.push('red');
+      classes.push(cssClasses.red);
     } else {
-      classes.push('large');
+      classes.push(cssClasses.large);
     }
+
+    let btnClass = [cssClasses.Button];
 
 
 
     return (
-      // <StyleRoot>
       <div>
-        <StyleButton alt={this.state.check} onClick={this.show} >Click Me</StyleButton>
+        <button className={btnClass.join(' ')} onClick={this.show} >Click Me</button>
 
         <p className={classes.join(' ')} >Hello here </p>
 
@@ -124,26 +87,35 @@ class App extends Component {
               <h1>Hello I'm testing REACT!</h1>
               {
                 this.state.students.map((student, index) => {
-                  return <Std
-                    click={() => this.delInfo(index)}
-                    name={student.name}
-                    roll={student.roll}
-                    dept={student.dept}
-                    key={student.id}
-                    change={(event) => this.nameChangeHandler(event, student.id)}
-                  />
+                  return <ErrorBoundary key={student.id}>
+                    <Std
+                      click={() => this.delInfo(index)}
+                      name={student.name}
+                      roll={student.roll}
+                      dept={student.dept}
+                      key={student.id}
+                      change={(event) => this.nameChangeHandler(event, student.id)}
+                    />
+                  </ErrorBoundary>
                 })
-              };
+
+
+              }
+
+              {
+                btnClass.push(cssClasses.Red),
+                console.log(btnClass)
+              }
+
 
             </div>
 
             : null
         }
       </div>
-      // </StyleRoot>
     )
   };
 }
 
-// export default Radium(App);
+
 export default App;

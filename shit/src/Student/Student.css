@@ -1,5 +1,5 @@
-.class1{
-    width: 30%;
+/* .class1{
+    width: 50%;
     box-shadow: 1px 0 5px 5px #e4d4d4;
     margin-left: 5%;
     margin-top: 10px;
@@ -16,5 +16,24 @@ button{
 }
 
 .btn{
+    margin: 5px;
+    font-size: medium;
+    font-weight: bolder;
+    cursor: pointer;
     float: right;
 }
+
+.red{
+    color: red;
+}
+
+.bold{
+    font-weight: bold;
+}
+
+.large{
+    font-family:  'Arial Narrow', Arial, sans-serif;
+    font-size: 30px;
+} */
+
+

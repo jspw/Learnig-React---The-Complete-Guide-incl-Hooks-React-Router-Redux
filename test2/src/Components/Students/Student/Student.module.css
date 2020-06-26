@@ -1,0 +1,53 @@
+.class1 {
+  width: 50%;
+  box-shadow: 1px 0 5px 5px #e4d4d4;
+  margin-left: 5%;
+  margin-top: 10px;
+  padding: 5px;
+}
+
+
+.btn {
+  margin: 5px;
+  font-size: medium;
+  font-weight: bolder;
+  cursor: pointer;
+  float: right;
+  background-color: rgb(0, 247, 255);
+}
+
+.red {
+  color: red;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.large {
+  font-family: "Arial Narrow", Arial, sans-serif;
+  font-size: 30px;
+}
+
+.Button {
+  background-color: rgb(157, 219, 219);
+  color: "white";
+  font: inherit;
+  font-size: 1.5em;
+  border: 3px solid #eee;
+  padding: 8px;
+  cursor: pointer;
+  margin: 10px;
+}
+
+.Button:hover {
+  background-color: rgb(29, 235, 190);
+  color: purple;
+}
+.Button.Red{
+  background-color: red;
+}
+
+.Button.Red:hover{
+  background-color: salmon;
+}
