@@ -10,6 +10,8 @@ import PropTypes from 'prop-types';
 
 class Person extends Component {
 
+  // var name = "shifat";
+
   static getDerivedStateFromProps(props, state) {
     console.log("[Person.js] getDerivedStateFromProps");
     return state;

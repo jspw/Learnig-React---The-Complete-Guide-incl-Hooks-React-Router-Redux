@@ -1,25 +1,23 @@
-import React, { Component } from 'react';
-import logo from '../logo.svg';
-import classes from './App.module.css';
-import Persons from '../components/Persons/Pesons'
-import Cockpit from '../components/Cockpit/Cockpit';
-import Aux from '../hoc/Auxilary'
-import withClasses from '../hoc/withClasses'
-import AuthContext from '../context/auth-context'
-
+import React, { Component } from "react";
+import logo from "../logo.svg";
+import classes from "./App.module.css";
+import Persons from "../components/Persons/Pesons";
+import Cockpit from "../components/Cockpit/Cockpit";
+import Aux from "../hoc/Auxilary";
+import withClasses from "../hoc/withClasses";
+import AuthContext from "../context/auth-context";
 
 class App extends Component {
-
   constructor(props) {
     super(props);
     console.log("App.js constructor");
-  };
+  }
 
   state = {
     persons: [
-      { id: '12', name: "Shifat", age: 23 },
-      { id: '14', name: "Proshi", age: 22 },
-      { id: '15', name: "Sania", age: 22 },
+      { id: "12", name: "Shifat", age: 23 },
+      { id: "14", name: "Proshi", age: 22 },
+      { id: "15", name: "Sania", age: 22 },
     ],
     showPerson: false,
     authenticated: false,
@@ -35,20 +33,17 @@ class App extends Component {
   //   console.log("[App.js] componentWillMound " )
   // }
 
-
   componentDidMount() {
     console.log("[App.js] componentDidMount runing..");
   }
 
-
-
   nameChangeHandler = (event, id) => {
-    const personIndex = this.state.persons.findIndex(s => {
+    const personIndex = this.state.persons.findIndex((s) => {
       return s.id === id;
     });
 
     const person = {
-      ...this.state.persons[personIndex]
+      ...this.state.persons[personIndex],
     };
 
     person.name = event.target.value;
@@ -58,18 +53,18 @@ class App extends Component {
     persons[personIndex] = person;
 
     this.setState({
-      persons: persons
-    })
-  }
+      persons: persons,
+    });
+  };
 
   deletePersonHandler = (index) => {
     // const student = this.state.students.slice();
     const person = [...this.state.persons];
     person.splice(index, 1);
     this.setState({
-      persons: person
-    })
-  }
+      persons: person,
+    });
+  };
 
   togglePersonsHandler = () => {
     const doesShow = this.state.showPersons;
@@ -77,9 +72,8 @@ class App extends Component {
   };
 
   render() {
-
-    console.log('[App.js] render');
-    console.log("I want to know : ", this)
+    console.log("[App.js] render");
+    console.log("I want to know : ", this);
 
     let persons = null;
 
@@ -94,14 +88,14 @@ class App extends Component {
     }
 
     return (
-
-      <Aux >
+      <Aux>
         <div className={classes.App}>
-          <AuthContext.Provider value={{
-            authenticated: this.state.authenticated,
-            login:this.loginHandler,
-          }} >
-
+          <AuthContext.Provider
+            value={{
+              authenticated: this.state.authenticated,
+              login: this.loginHandler,
+            }}
+          >
             <Cockpit
               title={this.props.appTitle}
               showPersons={this.state.showPersons}
@@ -109,16 +103,15 @@ class App extends Component {
               clicked={this.togglePersonsHandler}
             />
             {persons}
-
           </AuthContext.Provider>
         </div>
-        <div>
-          Hello
-        </div>
+        <div>Hello</div>
       </Aux>
-
-    )
+    );
   }
 }
+
+
+
 
 export default withClasses(App, classes.App);

@@ -122,10 +122,10 @@ class App extends Component {
           this.state.check ?
             <div>
               <h1>Hello I'm testing REACT!</h1>
-              {
+              { 
                 this.state.students.map((student, index) => {
                   return <Std
-                    click={() => this.delInfo(index)}
+                    click={() => this.delInfo(index)} 
                     name={student.name}
                     roll={student.roll}
                     dept={student.dept}

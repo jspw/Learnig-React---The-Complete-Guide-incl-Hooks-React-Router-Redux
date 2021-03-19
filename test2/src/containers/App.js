@@ -85,28 +85,6 @@ class App extends Component {
           this.state.check ?
             <div>
               <h1>Hello I'm testing REACT!</h1>
-              {
-                this.state.students.map((student, index) => {
-                  return <ErrorBoundary key={student.id}>
-                    <Std
-                      click={() => this.delInfo(index)}
-                      name={student.name}
-                      roll={student.roll}
-                      dept={student.dept}
-                      key={student.id}
-                      change={(event) => this.nameChangeHandler(event, student.id)}
-                    />
-                  </ErrorBoundary>
-                })
-
-
-              }
-
-              {
-                btnClass.push(cssClasses.Red),
-                console.log(btnClass)
-              }
-
 
             </div>
 
